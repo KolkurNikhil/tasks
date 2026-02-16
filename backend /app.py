@@ -7,7 +7,7 @@ app = Flask(__name__)
 def health():
     return jsonify({
         "status": "healthy",
-        "service": "hr-service",
+        "service": "hr-service1",
         "timestamp": datetime.utcnow().isoformat()
     }), 200
 
