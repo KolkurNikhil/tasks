@@ -1,13 +1,20 @@
-FROM node:18
+# Use Python image
+FROM python:3.11
 
+# Set working directory
 WORKDIR /app
 
-COPY package*.json ./
+# Copy requirements first
+COPY requirements.txt .
 
-RUN npm install
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
+# Copy application
 COPY . .
 
+# Expose app port
 EXPOSE 5000
 
-CMD ["npm", "start"]
+# Run application
+CMD ["python", "app.py"]
